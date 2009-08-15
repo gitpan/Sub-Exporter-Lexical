@@ -1,0 +1,22 @@
+{
+   "resources" : {
+      "repository" : "http://github.com/rjbs/sub-exporter-lexical/tree"
+   },
+   "meta-spec" : {
+      "version" : 1.4,
+      "url" : "http://module-build.sourceforge.net/META-spec-v1.4.html"
+   },
+   "generated_by" : "Dist::Zilla::Plugin::MetaJSON version 1.092200",
+   "version" : "0.092270",
+   "name" : "Sub-Exporter-Lexical",
+   "author" : [
+      "Ricardo Signes <rjbs@cpan.org>"
+   ],
+   "license" : "perl",
+   "requires" : {
+      "namespace::clean" : "0",
+      "Sub::Exporter" : "0.978",
+      "B::Hooks::EndOfScope" : "0"
+   },
+   "abstract" : "to export lexically-available subs with Sub::Exporter"
+}
