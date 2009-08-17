@@ -1,7 +1,7 @@
 use strict;
 use warnings;
 package Sub::Exporter::Lexical;
-our $VERSION = '0.092270';
+our $VERSION = '0.092290';
 
 # ABSTRACT: to export lexically-available subs with Sub::Exporter
 
@@ -43,7 +43,7 @@ Sub::Exporter::Lexical - to export lexically-available subs with Sub::Exporter
 
 =head1 VERSION
 
-version 0.092270
+version 0.092290
 
 =head1 SYNOPSIS
 
@@ -108,7 +108,7 @@ For the second:
 
 =head1 EXPORTS
 
-Sub::Exporter::ForMethods offers only one routine for export, and it may also
+Sub::Exporter::Lexical offers only one routine for export, and it may also
 be called by its full package name:
 
 =head2 lexical_installer

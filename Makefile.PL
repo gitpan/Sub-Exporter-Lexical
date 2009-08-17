@@ -9,7 +9,7 @@ WriteMakefile(
   NAME      => 'Sub::Exporter::Lexical',
   AUTHOR    => 'Ricardo\ Signes\ \<rjbs\@cpan\.org\>',
   ABSTRACT  => 'to\ export\ lexically\-available\ subs\ with\ Sub\:\:Exporter',
-  VERSION   => '0.092270',
+  VERSION   => '0.092290',
   EXE_FILES => [ qw() ],
   (eval { ExtUtils::MakeMaker->VERSION(6.31) } ? (LICENSE => 'perl') : ()),
   PREREQ_PM    => {
