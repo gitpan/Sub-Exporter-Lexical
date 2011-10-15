@@ -1,6 +1,8 @@
+Changes
 LICENSE
 MANIFEST
 META.json
+META.yml
 Makefile.PL
 README
 dist.ini
@@ -8,5 +10,4 @@ lib/Sub/Exporter/Lexical.pm
 snippet.pl
 t/basic.t
 t/lib/TestExporter.pm
-t/release-pod-coverage.t
 t/release-pod-syntax.t

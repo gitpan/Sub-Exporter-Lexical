@@ -1,8 +1,9 @@
 use strict;
 use warnings;
 package Sub::Exporter::Lexical;
-our $VERSION = '0.092290';
-
+{
+  $Sub::Exporter::Lexical::VERSION = '0.092291';
+}
 # ABSTRACT: to export lexically-available subs with Sub::Exporter
 
 use namespace::clean ();
@@ -34,7 +35,6 @@ sub lexical_installer {
 1;
 
 __END__
-
 =pod
 
 =head1 NAME
@@ -43,7 +43,7 @@ Sub::Exporter::Lexical - to export lexically-available subs with Sub::Exporter
 
 =head1 VERSION
 
-version 0.092290
+version 0.092291
 
 =head1 SYNOPSIS
 
@@ -69,7 +69,7 @@ In an importing library:
 
   {
     use Some:::Toolkit { installer => lex }, qw(foo bar);
-
+    
     foo(1,2,3);
     my $x = bar;
 
@@ -143,15 +143,14 @@ works:
 
 =head1 AUTHOR
 
-  Ricardo Signes <rjbs@cpan.org>
+Ricardo Signes <rjbs@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2009 by Ricardo Signes.
+This software is copyright (c) 2011 by Ricardo Signes.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
-=cut 
-
+=cut
 

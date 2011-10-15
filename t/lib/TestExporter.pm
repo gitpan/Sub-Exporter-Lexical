@@ -1,8 +1,6 @@
 use strict;
 use warnings;
 package TestExporter;
-our $VERSION = '0.092290';
-
 
 use Sub::Exporter -setup => {
   exports => [ qw(foo bar baz) ],
