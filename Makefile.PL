@@ -2,7 +2,7 @@
 use strict;
 use warnings;
 
-
+use 5.012000;
 
 use ExtUtils::MakeMaker 6.30;
 
@@ -11,9 +11,7 @@ use ExtUtils::MakeMaker 6.30;
 my %WriteMakefileArgs = (
   "ABSTRACT" => "to export lexically-available subs with Sub::Exporter",
   "AUTHOR" => "Ricardo Signes <rjbs\@cpan.org>",
-  "BUILD_REQUIRES" => {
-    "Test::More" => "0.96"
-  },
+  "BUILD_REQUIRES" => {},
   "CONFIGURE_REQUIRES" => {
     "ExtUtils::MakeMaker" => "6.30"
   },
@@ -22,30 +20,36 @@ my %WriteMakefileArgs = (
   "LICENSE" => "perl",
   "NAME" => "Sub::Exporter::Lexical",
   "PREREQ_PM" => {
-    "B::Hooks::EndOfScope" => 0,
+    "Lexical::Sub" => 0,
     "Sub::Exporter" => "0.978",
-    "namespace::clean" => 0,
     "strict" => 0,
     "warnings" => 0
   },
-  "VERSION" => "0.092291",
+  "TEST_REQUIRES" => {
+    "Test::More" => "0.96",
+    "lib" => 0
+  },
+  "VERSION" => "0.092292",
   "test" => {
     "TESTS" => "t/*.t"
   }
 );
 
 
-unless ( eval { ExtUtils::MakeMaker->VERSION(6.56) } ) {
-  my $br = delete $WriteMakefileArgs{BUILD_REQUIRES};
-  my $pp = $WriteMakefileArgs{PREREQ_PM};
-  for my $mod ( keys %$br ) {
-    if ( exists $pp->{$mod} ) {
-      $pp->{$mod} = $br->{$mod} if $br->{$mod} > $pp->{$mod};
-    }
-    else {
-      $pp->{$mod} = $br->{$mod};
-    }
-  }
+my %FallbackPrereqs = (
+  "Lexical::Sub" => 0,
+  "Sub::Exporter" => "0.978",
+  "Test::More" => "0.96",
+  "lib" => 0,
+  "strict" => 0,
+  "warnings" => 0
+);
+
+
+unless ( eval { ExtUtils::MakeMaker->VERSION(6.63_03) } ) {
+  delete $WriteMakefileArgs{TEST_REQUIRES};
+  delete $WriteMakefileArgs{BUILD_REQUIRES};
+  $WriteMakefileArgs{PREREQ_PM} = \%FallbackPrereqs;
 }
 
 delete $WriteMakefileArgs{CONFIGURE_REQUIRES}
